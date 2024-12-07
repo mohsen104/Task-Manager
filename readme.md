@@ -1,0 +1,39 @@
+# This project is being developed
+
+## v1
+
+- List of all users ✅
+- List of all projects ✅
+- List of users of each project ✅
+- List of tasks for each user in each project ✅
+- Task details ✅
+- List of all user tasks ✅
+- Create a task ✅
+- Create a project ✅
+- Edit task ✅
+- Project editing ✅
+- Remove the task ✅
+- Delete the project
+- Add users to the project ✅
+- Ability to filter and paginate and search and sort for all lists ✅
+- Archive Task Of Project
+
+## v2
+
+- Validations
+
+## v3
+
+- Reports
+
+## v4
+
+- Auth
+
+## v5
+
+- RBAC
+
+## v6
+
+- Chat In Projects Real Time
