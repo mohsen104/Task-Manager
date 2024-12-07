@@ -16,8 +16,6 @@
 - Delete the project ✅
 - Add users to the project ✅
 - Ability to filter and paginate and search and sort for all lists ✅
-- Archive Task Of Project
-- Get List Tasks Archive Of Project In Periods
 
 ## v2
 
