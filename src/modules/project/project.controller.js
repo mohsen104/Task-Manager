@@ -67,6 +67,15 @@ const ProjectController = {
             next(error);
         }
     },
+    deleteProject: async (req, res, next) => {
+        try {
+            const { project_id } = req.params;
+            const project = await Project.destroy({ where: { id: project_id } });
+            return res.status(200).json(project);
+        } catch (error) {
+            next(error);
+        }
+    },
     getUsersOfProject: async (req, res, next) => {
         try {
             const { q = '', order_by = 'created_at', sort_order = 'asc', limit = 10, page = 1 } = req.query;

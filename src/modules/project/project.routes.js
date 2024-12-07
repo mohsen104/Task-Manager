@@ -7,6 +7,7 @@ const router = Router();
 router.get("/", ProjectController.getAllProject);
 router.post("/", ProjectController.createProject)
 router.put("/:project_id", ProjectController.updateProject);
+router.delete("/:project_id", ProjectController.deleteProject);
 router.post("/:project_id/members", ProjectMemberController.addMemberToProject);
 router.get("/:project_id/users", ProjectController.getUsersOfProject);
 router.get("/:project_id/users/:user_id/tasks", ProjectController.getTasksOfUserInProject);
