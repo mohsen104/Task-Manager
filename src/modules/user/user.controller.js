@@ -1,11 +1,14 @@
 import { Op } from "@sequelize/core";
 import User from "./user.model.js";
 import Task from "../task/task.model.js";
+import { QueryParamsValidation } from "./user.validation.js";
 
 const UserController = {
     getAllUsers: async (req, res, next) => {
         try {
             const { q = '', order_by = 'created_at', sort_order = 'asc', limit = 10, page = 1 } = req.query;
+
+            await QueryParamsValidation.validateAsync({ order_by, sort_order, limit: +limit, page: +page });
 
             const { rows, count } = await User.findAndCountAll(
                 {
@@ -37,6 +40,8 @@ const UserController = {
         try {
             const { q = '', order_by = 'created_at', sort_order = 'asc', limit = 10, page = 1 } = req.query;
 
+            await QueryParamsValidation.validateAsync({ order_by, sort_order, limit: +limit, page: +page });
+
             const { user_id } = req.params;
 
             const { rows, count } = await Task.findAndCountAll({
@@ -59,17 +64,6 @@ const UserController = {
                 limit: +limit,
                 data: rows,
             });
-        } catch (error) {
-            next(error);
-        }
-    },
-    login: async (req, res, next) => {
-        try {
-            const { first_name, last_name, phone, email, password } = req.body;
-
-            const user = await User.create({ first_name, last_name, phone, email, password }, { raw: true });
-
-            res.status(200).json(user.dataValues);
         } catch (error) {
             next(error);
         }

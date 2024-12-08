@@ -19,7 +19,7 @@
 
 ## v2
 
-- Validations
+- Validations ✅
 
 ## v3
 
