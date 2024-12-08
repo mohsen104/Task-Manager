@@ -233,3 +233,10 @@ Value: { id: '' }
 2024-12-08T17:46:57.727Z [info]: GET: /api/projects/2/users/1/tasks
 2024-12-08T17:47:01.585Z [info]: GET: /api/projects/1/users/1/tasks
 2024-12-08T17:47:06.233Z [info]: GET: /api/tasks/1
+2024-12-08T18:42:44.080Z [info]: GET: /api/projects
+2024-12-08T18:43:12.213Z [info]: POST: /api/tasks
+2024-12-08T18:44:15.450Z [error]: undefined
+2024-12-08T18:45:24.734Z [error]: undefined
+2024-12-08T18:48:04.679Z [error]: undefined
+2024-12-08T18:48:05.540Z [error]: undefined
+2024-12-08T18:51:54.197Z [info]: GET: /api/projects

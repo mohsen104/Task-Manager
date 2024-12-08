@@ -1,5 +1,6 @@
 import { DataTypes } from "@sequelize/core";
 import sequelize from "../../common/configs/sequelize.config.js";
+import Role from "../role/role.model.js";
 
 const User = sequelize.define("user", {
     first_name: { type: DataTypes.STRING(150), allowNull: false },
@@ -7,7 +8,14 @@ const User = sequelize.define("user", {
     phone: { type: DataTypes.STRING(150), allowNull: false, unique: true },
     email: { type: DataTypes.STRING(150), allowNull: false, unique: true },
     password: { type: DataTypes.STRING(150), allowNull: false },
-    role: { type: DataTypes.ENUM("manager", "admin", "member"), defaultValue: "member" },
 }, { freezeTableName: true, updatedAt: false, createdAt: "created_at" });
+
+Role.hasOne(User, {
+    foreignKey: {
+        name: "role_id",
+        onDelete: "CASCADE"
+    },
+    sourceKey: "id"
+})
 
 export default User;
