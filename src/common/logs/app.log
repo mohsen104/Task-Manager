@@ -240,3 +240,25 @@ Value: { id: '' }
 2024-12-08T18:48:04.679Z [error]: undefined
 2024-12-08T18:48:05.540Z [error]: undefined
 2024-12-08T18:51:54.197Z [info]: GET: /api/projects
+2024-12-11T19:34:29.431Z [info]: POST: /api/user/authentication
+2024-12-11T19:34:47.612Z [info]: POST: /api/user/login/otp
+2024-12-11T19:34:47.615Z [error]: "phone" is required
+2024-12-11T19:34:54.185Z [info]: POST: /api/user/login/otp
+2024-12-11T19:36:34.879Z [error]: undefined
+2024-12-11T19:36:36.623Z [error]: undefined
+2024-12-11T19:36:39.258Z [error]: undefined
+2024-12-11T19:36:44.611Z [error]: undefined
+2024-12-11T19:37:17.105Z [info]: POST: /api/user/authentication
+2024-12-11T19:37:17.115Z [error]: Received invalid boolean value from DB: ''
+2024-12-11T19:38:19.096Z [error]: undefined
+2024-12-11T19:38:51.575Z [error]: undefined
+2024-12-11T19:39:03.071Z [error]: undefined
+2024-12-11T19:41:06.450Z [info]: POST: /api/user/authentication
+2024-12-11T19:41:21.085Z [info]: POST: /api/user/login/otp
+2024-12-11T19:42:04.975Z [info]: POST: /api/user/username/update
+2024-12-11T19:42:39.383Z [info]: POST: /api/user/authentication
+2024-12-11T19:42:53.064Z [info]: POST: /api/user/login/otp
+2024-12-11T19:42:57.500Z [info]: POST: /api/user/username/update
+2024-12-11T19:44:30.149Z [info]: POST: /api/user/authentication
+2024-12-11T19:44:39.471Z [info]: POST: /api/user/login/otp
+2024-12-11T19:44:44.002Z [info]: POST: /api/user/username/update

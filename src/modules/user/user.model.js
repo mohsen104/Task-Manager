@@ -8,6 +8,7 @@ const User = sequelize.define("user", {
     phone: { type: DataTypes.STRING(150), allowNull: false, unique: true },
     email: { type: DataTypes.STRING(150), allowNull: false, unique: true },
     password: { type: DataTypes.STRING(150), allowNull: false },
+    verify: { type: DataTypes.BOOLEAN, defaultValue: false },
 }, { freezeTableName: true, updatedAt: false, createdAt: "created_at" });
 
 Role.hasOne(User, {
