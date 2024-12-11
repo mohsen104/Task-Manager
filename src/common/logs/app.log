@@ -262,3 +262,27 @@ Value: { id: '' }
 2024-12-11T19:44:30.149Z [info]: POST: /api/user/authentication
 2024-12-11T19:44:39.471Z [info]: POST: /api/user/login/otp
 2024-12-11T19:44:44.002Z [info]: POST: /api/user/username/update
+2024-12-11T19:46:24.724Z [info]: POST: /api/user/authentication
+2024-12-11T19:46:34.163Z [info]: POST: /api/user/login/otp
+2024-12-11T19:46:37.109Z [info]: POST: /api/user/username/update
+2024-12-11T19:46:37.112Z [error]: "last_name" is required
+2024-12-11T19:46:42.040Z [info]: POST: /api/user/username/update
+2024-12-11T19:46:53.741Z [info]: POST: /api/user/username/update
+2024-12-11T19:47:05.303Z [info]: GET: /api/user/logout
+2024-12-11T19:47:09.765Z [info]: GET: /api/projects
+2024-12-11T19:47:15.812Z [info]: POST: /api/user/authentication
+2024-12-11T19:47:25.984Z [info]: POST: /api/user/login/otp
+2024-12-11T19:47:33.408Z [info]: GET: /api/projects
+2024-12-11T19:58:50.124Z [info]: GET: /api/tasks/1
+2024-12-11T19:59:19.982Z [info]: GET: /api/tasks/1
+2024-12-11T20:00:18.748Z [info]: GET: /api/tasks/1
+2024-12-11T20:00:18.759Z [error]: Unknown column 'permission.permission.name' in 'field list'
+2024-12-11T20:00:34.831Z [info]: GET: /api/tasks/1
+2024-12-11T20:00:34.845Z [error]: Cannot read properties of undefined (reading 'log')
+2024-12-11T20:00:45.440Z [info]: GET: /api/tasks/1
+2024-12-11T20:01:59.665Z [info]: GET: /api/tasks/1
+2024-12-11T20:01:59.678Z [error]: Cannot read properties of undefined (reading 'name')
+2024-12-11T20:02:12.273Z [info]: GET: /api/tasks/1
+2024-12-11T20:02:31.911Z [info]: GET: /api/tasks/1
+2024-12-11T20:04:46.288Z [info]: GET: /api/tasks/1
+2024-12-11T20:04:53.810Z [info]: POST: /api/tasks
