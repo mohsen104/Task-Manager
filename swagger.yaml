@@ -1,0 +1,358 @@
+openapi: 3.0.0
+info:
+  title: Sequelize ORM
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+tags:
+  - name: Auth
+  - name: project
+  - name: project member
+  - name: task
+  - name: user
+paths:
+  /api/authentication:
+    post:
+      tags:
+        - Auth
+      summary: authentication
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                username: ""
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/login/otp:
+    post:
+      tags:
+        - Auth
+      summary: login by otp
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                phone: ""
+                otp: ""
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/login/password:
+    post:
+      tags:
+        - Auth
+      summary: login by password
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                username: ""
+                password: ""
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/username/update:
+    post:
+      tags:
+        - Auth
+      summary: update username
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                first_name: ""
+                last_name: ""
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/email/update:
+    post:
+      tags:
+        - Auth
+      summary: update email
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: ""
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/password/update:
+    post:
+      tags:
+        - Auth
+      summary: update password
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                current_password: ""
+                new_password: ""
+                repeat_password: ""
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/user/logout:
+    get:
+      tags:
+        - Auth
+      summary: logout
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/projects:
+    get:
+      tags:
+        - project
+      summary: Get All Projects
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - project
+      summary: Create Project
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title: ""
+                description: ""
+                created_by: ""
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/projects/{project_id}:
+    put:
+      tags:
+        - project
+      summary: Update Project
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                description: ""
+      parameters:
+        - name: project_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - project
+      summary: Delete Project
+      parameters:
+        - name: project_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/projects/{project_id}/members:
+    post:
+      tags:
+        - project member
+      summary: Add Member to Project
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                user_id: ""
+      parameters:
+        - name: project_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/tasks/{task_id}:
+    get:
+      tags:
+        - task
+      summary: Get Task Details
+      parameters:
+        - name: task_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+        - task
+      summary: Update Task
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title: taks2
+      parameters:
+        - name: task_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - task
+      summary: Delete Task
+      parameters:
+        - name: task_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/tasks:
+    post:
+      tags:
+        - task
+      summary: Create Task
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title: ""
+                description: ""
+                status: ""
+                priority: ""
+                due_date: ""
+                project_id: ""
+                user_id: ""
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/projects/{project_id}/users/{user_id}/tasks:
+    get:
+      tags:
+        - task
+      summary: Get Tasks of User in Project
+      parameters:
+        - name: project_id
+          in: path
+          schema:
+            type: string
+          required: true
+        - name: user_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/users/{user_id}/tasks:
+    get:
+      tags:
+        - task
+      summary: Get User's Tasks
+      parameters:
+        - name: user_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/users:
+    get:
+      tags:
+        - user
+      summary: Get All Users
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/projects/{project_id}/users:
+    get:
+      tags:
+        - user
+      summary: Get Users of Project
+      parameters:
+        - name: project_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
