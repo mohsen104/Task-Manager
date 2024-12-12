@@ -4,6 +4,8 @@
 
 A comprehensive task management API built using Node.js, Express, Sequelize ORM, and MySQL. This API allows users to manage tasks, projects, and team members, with robust authentication and role-based access control (RBAC) features. The API supports CRUD operations for tasks and projects, user management within projects, and assignment of tasks to users.
 
+Redis is also required for session management and caching to improve performance.
+
 ## Features
 
 - **User Authentication**: Login system based on sessions.
@@ -25,7 +27,7 @@ Upon application startup, predefined permissions and roles are automatically pop
 
 ## Authentication System
 
-Authentication is session-based and includes routes for login (via OTP or password), updating user credentials, and logout.
+Authentication is session-based and includes routes for login (via OTP or password), updating user credentials, and logout. Redis is used to manage and store session data for improved performance.
 
 ## API Endpoints
 
