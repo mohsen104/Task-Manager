@@ -5,7 +5,7 @@ import AuthorizeGuard from "../../common/guards/Authorize.guard.js";
 
 const router = Router();
 
-router.get("/", AuthorizationGuard, AuthorizeGuard('read'), UserController.getAllUsers);
-router.get("/:user_id/tasks", AuthorizationGuard, AuthorizeGuard('read'), UserController.getTasksOfUser);
+router.get("/", AuthorizationGuard, AuthorizeGuard('getAllUsers'), UserController.getAllUsers);
+router.get("/:user_id/tasks", AuthorizationGuard, AuthorizeGuard('getTasksOfUser'), UserController.getTasksOfUser);
 
 export default router;
