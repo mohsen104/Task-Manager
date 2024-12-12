@@ -1,4 +1,3 @@
-// id -> role
 import Permission from '../../modules/permission/permission.model.js';
 import RolePermission from '../../modules/rolePermission/rolePermission.model.js';
 

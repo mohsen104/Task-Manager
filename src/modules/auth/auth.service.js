@@ -28,9 +28,9 @@ const AuthService = {
             const sms_ttl = 180;
             const phone = username;
             const keyOtp = generateCodeOtp();
-            const isExistsOtp = await redisClient.exists("sms_otp");
+            const isExistsOtp = await redisClient.exists(`sms_otp_${phone}`);
             if (!isExistsOtp) {
-                redisClient.setEx(`sms_otp`, sms_ttl, `${keyOtp},${phone}`);
+                redisClient.setEx(`sms_otp_${phone}`, sms_ttl, `${keyOtp},${phone}`);
             };
             return responseFormatter({
                 status: 200,
@@ -61,7 +61,7 @@ const AuthService = {
     },
     loginOtp: async (userDto) => {
         const { phone, otp, req } = userDto;
-        const sms_otp = await redisClient.get("sms_otp");
+        const sms_otp = await redisClient.get(`sms_otp_${phone}`);
         if (!sms_otp) {
             return responseFormatter({
                 status: 200,
@@ -85,7 +85,7 @@ const AuthService = {
 
         req.session.user_id = user.id;
 
-        redisClient.del("sms_otp");
+        redisClient.del(`sms_otp_${phone}`);
         return responseFormatter({
             status: 200,
             message: UserMessage.SuccessLogin
