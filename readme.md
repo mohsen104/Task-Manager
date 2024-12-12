@@ -2,70 +2,182 @@
 
 ## Project Description
 
-A task management API built using Node.js, Express, Sequelize ORM, and MySQL. This API allows users to manage tasks, projects, and team members. It supports authentication, CRUD operations for tasks and projects, and provides functionality for assigning users to projects and tasks.
+A comprehensive task management API built using Node.js, Express, Sequelize ORM, and MySQL. This API allows users to manage tasks, projects, and team members, with robust authentication and role-based access control (RBAC) features. The API supports CRUD operations for tasks and projects, user management within projects, and assignment of tasks to users.
 
 ## Features
 
-- **User Authentication**: Login to the system.
+- **User Authentication**: Login system based on sessions.
 - **Project Management**: Create, update, delete, and retrieve projects.
 - **Task Management**: Create, update, delete, and retrieve tasks.
-- **User Management**: Manage users within a project, assign tasks to users.
+- **User Management**: Manage users within a project and assign tasks to users.
 - **Project Members**: Add members to specific projects.
+- **RBAC System**: Role-based access control ensures secure and granular permission handling.
+
+## RBAC System
+
+The application fully implements an **RBAC (Role-Based Access Control)** system with the following components:
+
+- **Roles**: Defines the role of each user (e.g., Admin, User).
+- **Permissions**: Defines the actions that can be performed within the system (e.g., Create Task, Edit Project).
+- **RolePermissions**: Maps roles to permissions.
+
+Upon application startup, predefined permissions and roles are automatically populated into the database, ensuring consistent and reliable access control.
+
+## Authentication System
+
+Authentication is session-based and includes routes for login (via OTP or password), updating user credentials, and logout.
 
 ## API Endpoints
 
-### 1. List of All Users
-- **GET** `/api/users`
-- Retrieves a list of all users in the system.
+### Authentication
 
-### 2. List of All Projects
+#### 1. Authentication
+- **POST** `/api/authentication`
+- Validates user session.
+- **Request Body Example:**
+  ```json
+  {
+    "username": ""
+  }
+  ```
+
+#### 2. Login via OTP
+- **POST** `/api/login/otp`
+- **Request Body Example:**
+  ```json
+  {
+    "phone": "",
+    "otp": ""
+  }
+  ```
+
+#### 3. Login via Password
+- **POST** `/api/login/password`
+- **Request Body Example:**
+  ```json
+  {
+    "username": "",
+    "password": ""
+  }
+  ```
+
+#### 4. Update Username
+- **POST** `/api/username/update`
+- **Request Body Example:**
+  ```json
+  {
+    "first_name": "",
+    "last_name": ""
+  }
+  ```
+
+#### 5. Update Email
+- **POST** `/api/email/update`
+- **Request Body Example:**
+  ```json
+  {
+    "email": ""
+  }
+  ```
+
+#### 6. Update Password
+- **POST** `/api/password/update`
+- **Request Body Example:**
+  ```json
+  {
+    "current_password": "",
+    "new_password": "",
+    "repeat_password": ""
+  }
+  ```
+
+#### 7. Logout
+- **GET** `/api/user/logout`
+
+### Projects
+
+#### 1. Get All Projects
 - **GET** `/api/projects`
-- Retrieves a list of all projects in the system.
 
-### 3. List of Users for Each Project
-- **GET** `/api/projects/:project_id/users`
-- Retrieves a list of users associated with a specific project.
-
-### 4. List of Tasks for Each User in Each Project
-- **GET** `/api/projects/:project_id/users/:user_id/tasks`
-- Retrieves a list of all tasks assigned to a user in a specific project.
-
-### 5. Task Details
-- **GET** `/api/tasks/:task_id`
-- Retrieves the details of a specific task using the task ID.
-
-### 6. List of All User Tasks
-- **GET** `/api/users/:user_id/tasks`
-- Retrieves all tasks assigned to a specific user.
-
-### 7. Create a Task
-- **POST** `/api/tasks`
-- Used to create a new task.
-
-### 8. Create a Project
+#### 2. Create Project
 - **POST** `/api/projects`
-- Used to create a new project.
+- **Request Body Example:**
+  ```json
+  {
+    "title": "",
+    "description": "",
+    "created_by": ""
+  }
+  ```
 
-### 9. Edit Task
-- **PUT** `/api/tasks/:task_id`
-- Used to edit an existing task.
+#### 3. Update Project
+- **PUT** `/api/projects/{project_id}`
+- **Request Body Example:**
+  ```json
+  {
+    "description": ""
+  }
+  ```
 
-### 10. Edit Project
-- **PUT** `/api/projects/:project_id`
-- Used to edit an existing project.
+#### 4. Delete Project
+- **DELETE** `/api/projects/{project_id}`
 
-### 11. Remove a Task
-- **DELETE** `/api/tasks/:task_id`
-- Used to remove a specific task.
+#### 5. Add Member to Project
+- **POST** `/api/projects/{project_id}/members`
+- **Request Body Example:**
+  ```json
+  {
+    "user_id": ""
+  }
+  ```
 
-### 12. Delete a Project
-- **DELETE** `/api/projects/:project_id`
-- Used to delete a specific project.
+### Tasks
 
-### 13. Add Users to Project
-- **POST** `/api/projects/:project_id/members`
-- Used to add one or more users to a specific project.
+#### 1. Create Task
+- **POST** `/api/tasks`
+- **Request Body Example:**
+  ```json
+  {
+    "title": "",
+    "description": "",
+    "status": "",
+    "priority": "",
+    "due_date": "",
+    "project_id": "",
+    "user_id": ""
+  }
+  ```
 
+#### 2. Get Task Details
+- **GET** `/api/tasks/{task_id}`
+
+#### 3. Update Task
+- **PUT** `/api/tasks/{task_id}`
+- **Request Body Example:**
+  ```json
+  {
+    "title": "updated task"
+  }
+  ```
+
+#### 4. Delete Task
+- **DELETE** `/api/tasks/{task_id}`
+
+### User and Project Tasks
+
+#### 1. Get Tasks of User in Project
+- **GET** `/api/projects/{project_id}/users/{user_id}/tasks`
+
+#### 2. Get User's Tasks
+- **GET** `/api/users/{user_id}/tasks`
+
+### Users
+
+#### 1. Get All Users
+- **GET** `/api/users`
+
+#### 2. Get Users of Project
+- **GET** `/api/projects/{project_id}/users`
 
 ## Installation
 
@@ -87,13 +199,3 @@ A task management API built using Node.js, Express, Sequelize ORM, and MySQL. Th
 - **Sequelize ORM**: ORM for MySQL database interaction.
 - **MySQL**: Database for storing project, task, and user data.
 - **Winston**: Logging library.
-
-## RBAC System
-
-This application implements an **RBAC (Role-Based Access Control)** system with the following components:
-
-- **Roles**: Defines the role of each user (e.g., Admin, User).
-- **Permissions**: Defines the actions that can be performed within the system (e.g., Create Task, Edit Project).
-- **RolePermissions**: Defines the mapping between roles and permissions.
-
-However, note that **authorization guards** and the **authentication system** have not yet been implemented in the project.
