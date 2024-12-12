@@ -2,6 +2,7 @@ import { Router } from "express";
 import ProjectController from "./project.controller.js";
 import ProjectMemberController from "../projectMember/projectMember.controller.js";
 import AuthorizationGuard from "../../common/guards/Authorization.guard.js";
+import AuthorizeGuard from "../../common/guards/Authorize.guard.js";
 
 const router = Router();
 

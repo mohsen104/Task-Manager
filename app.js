@@ -7,6 +7,7 @@ import logger from './src/common/configs/logger.js';
 import session from 'express-session';
 import { RedisStore } from 'connect-redis';
 import { redisClient, redisConfig } from './src/common/configs/redis.config.js';
+import CreatePermissions from './src/common/configs/permissions.js';
 
 const app = express();
 const port = process.env.PORT;
@@ -33,7 +34,9 @@ redisConfig();
 app.use((req, res, next) => {
     logger.info(`${req.method}: ${req.path}`)
     next();
-})
+});
+
+CreatePermissions();
 
 app.use("/api", AllRoutes);
 
