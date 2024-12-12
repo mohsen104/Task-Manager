@@ -6,7 +6,7 @@ import AuthRoutes from './modules/auth/auth.routes.js';
 
 const router = Router();
 
-router.use("/user", AuthRoutes);
+router.use("/", AuthRoutes);
 router.use("/tasks", TaskRoutes);
 router.use("/users", UserRoutes);
 router.use("/projects", ProjectRoutes);
