@@ -286,3 +286,5 @@ Value: { id: '' }
 2024-12-11T20:02:31.911Z [info]: GET: /api/tasks/1
 2024-12-11T20:04:46.288Z [info]: GET: /api/tasks/1
 2024-12-11T20:04:53.810Z [info]: POST: /api/tasks
+2024-12-12T13:38:26.266Z [info]: OPTIONS: /api/authentication
+2024-12-12T13:40:27.822Z [info]: POST: /api/authentication

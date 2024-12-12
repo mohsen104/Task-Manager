@@ -8,11 +8,13 @@ import session from 'express-session';
 import { RedisStore } from 'connect-redis';
 import { redisClient, redisConfig } from './src/common/configs/redis.config.js';
 import CreatePermissions from './src/common/configs/permissions.js';
+import cors from 'cors';
 
 const app = express();
 const port = process.env.PORT;
 const sessionSecretKey = process.env.SESSION_SECRET_KEY;
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(session({
