@@ -198,7 +198,8 @@ Authentication is session-based and includes routes for login (via OTP or passwo
 ### Easy Installation with Docker
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/mohsen104/Task-Manager/master/install.sh)```
+bash <(curl -Ls https://raw.githubusercontent.com/mohsen104/Task-Manager/master/install.sh)
+```
 
 ## Technologies Used
 
