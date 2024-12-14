@@ -8,7 +8,7 @@ if [ ! -d "$REPO_DIR" ]; then
   echo "Cloning repository..."
   git clone "$REPO_URL"
 else
-  echo "Repository already cloned."
+  echo "Repository already cloned."r
 fi
 cd "$REPO_DIR" || exit
 
