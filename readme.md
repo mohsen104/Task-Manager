@@ -183,6 +183,8 @@ Authentication is session-based and includes routes for login (via OTP or passwo
 
 ## Installation
 
+### Manual Installation
+
 1. Clone the repository.
 2. Install dependencies:
    ```bash
@@ -193,6 +195,9 @@ Authentication is session-based and includes routes for login (via OTP or passwo
    ```bash
    npm start
    ```
+### Easy Installation with Docker
+
+```bash <(curl -Ls https://raw.githubusercontent.com/mohsen104/Task-Manager/master/install.sh)```
 
 ## Technologies Used
 
