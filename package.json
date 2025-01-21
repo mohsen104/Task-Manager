@@ -1,0 +1,27 @@
+{
+  "name": "task-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --watch --env-file=.env app.js"
+  },
+  "keywords": [],
+  "author": "Mohsen",
+  "license": "ISC",
+  "dependencies": {
+    "@sequelize/core": "^7.0.0-alpha.43",
+    "@sequelize/mysql": "^7.0.0-alpha.43",
+    "bcryptjs": "^2.4.3",
+    "connect-redis": "^8.0.1",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "express": "^4.21.1",
+    "express-session": "^1.18.1",
+    "joi": "^17.13.3",
+    "mysql2": "^3.11.4",
+    "redis": "^4.7.0",
+    "winston": "^3.17.0"
+  }
+}
